@@ -4,7 +4,7 @@ namespace Grafite\Auth\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class CollectiveAuth extends Facade
+class GrafiteAuth extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,7 +13,7 @@ class CollectiveAuth extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'collective-auth';
+        return 'grafite-auth';
     }
 
     /**

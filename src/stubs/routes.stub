@@ -1,5 +1,5 @@
 
-CollectiveAuth::routes([
+GrafiteAuth::routes([
     'login' => true,
     'logout' => true,
     'register' => true,
