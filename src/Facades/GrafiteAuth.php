@@ -22,8 +22,8 @@ class GrafiteAuth extends Facade
      * @param  array  $options
      * @return void
      */
-    public static function routes(array $options = [])
+    public static function routes(array $options = [], array $middleware = [])
     {
-        static::$app->make('router')->auth($options);
+        static::$app->make('router')->auth($options, $middleware);
     }
 }

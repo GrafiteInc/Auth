@@ -12,14 +12,14 @@ class AuthRouteMethods
      */
     public function auth()
     {
-        return function ($options = []) {
-           $namespace = class_exists($this->prependGroupNamespace('Auth\LoginController')) ? null : 'App\Http\Controllers';
+        return function ($options = [], $middleware = []) {
+            $namespace = class_exists($this->prependGroupNamespace('Auth\LoginController')) ? null : 'App\Http\Controllers';
 
-            $this->group(['namespace' => $namespace], function() use($options) {
+            $this->group(['namespace' => $namespace], function() use($options, $middleware) {
                 // Login Routes...
                 if ($options['login'] ?? true) {
                     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-                    $this->post('login', 'Auth\LoginController@login');
+                    $this->post('login', 'Auth\LoginController@login')->middleware($middleware);
                 }
 
                 // Logout Routes...
@@ -30,28 +30,28 @@ class AuthRouteMethods
                 // Registration Routes...
                 if ($options['register'] ?? true) {
                     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-                    $this->post('register', 'Auth\RegisterController@register');
+                    $this->post('register', 'Auth\RegisterController@register')->middleware($middleware);
                 }
 
                 // Password Reset Routes...
                 if ($options['reset'] ?? true) {
                     $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-                    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+                    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email')->middleware($middleware);
                     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-                    $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+                    $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update')->middleware($middleware);
                 }
 
                 // Password Confirmation Routes...
                 if ($options['confirm'] ?? class_exists($this->prependGroupNamespace('Auth\ConfirmPasswordController'))) {
                     $this->get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
-                    $this->post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
+                    $this->post('password/confirm', 'Auth\ConfirmPasswordController@confirm')->middleware($middleware);
                 }
 
                 // Email Verification Routes...
                 if ($options['verify'] ?? false) {
                     $this->get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
                     $this->get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
-                    $this->post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+                    $this->post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend')->middleware($middleware);
                 }
             });
         };
