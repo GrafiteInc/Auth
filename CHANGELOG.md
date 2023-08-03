@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 ----
 
+## [v1.0.3] - 2023-08-03
+
+### Added
+- Ability to set middleware on Post Routes
+
 ## [v1.0.2] - 2023-06-09
 
 ### Added
