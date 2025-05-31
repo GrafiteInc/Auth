@@ -2,8 +2,8 @@
 
 **Auth** - A handy set of Auth tools for Laravel.
 
-[![Build Status](https://github.com/GrafiteInc/Auth/workflows/PHP%20Package%20Tests/badge.svg?branch=main)](https://github.com/GrafiteInc/Auth/actions?query=workflow%3A%22PHP+Package+Tests%22)
-[![Maintainability](https://api.codeclimate.com/v1/badges/70e073844adaa608af33/maintainability)](https://codeclimate.com/github/GrafiteInc/Auth/maintainability)
+[![Build Status](https://github.com/GrafiteInc/Auth/actions/workflows/php-package-tests.yml/badge.svg?branch=main)](https://github.com/GrafiteInc/Auth/actions/workflows/php-package-tests.yml)
+[![Maintainability](https://qlty.sh/badges/023fb157-8b66-4988-b296-7ad33304865a/maintainability.svg)](https://qlty.sh/gh/GrafiteInc/projects/Auth)
 [![Packagist](https://img.shields.io/packagist/dt/grafite/Auth.svg)](https://packagist.org/packages/grafite/Auth)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://packagist.org/packages/grafite/Auth)
 
