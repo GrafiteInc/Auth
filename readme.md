@@ -42,7 +42,7 @@ php artisan vendor:publish --provider="Grafite\Auth\AuthProvider"
 
 ## Documentation
 
-[https://docs.grafite.ca/utilities/auth](https://docs.grafite.ca/utilities/auth)
+[https://documentation.grafite.ca/docs/utilities-auth](https://documentation.grafite.ca/docs/utilities-auth)
 
 ## License
 Auth is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
